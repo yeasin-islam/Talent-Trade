@@ -497,20 +497,20 @@ talenttrade/
 ## 13. Team Members & Responsibilities
 | Member Name        | Responsibility                                 |
 |--------------------|-----------------------------------------------|
-| [Md. Yeasin Islam](https://github.com/yeasin-islam)  | Lead Developer (Frontend + API Design + Auth) |
-| [Md. Al Amin](https://github.com/alamin-87)        | Backend Developer (Database, Models, Business Logic) |
-| [Nusrat Humaira](https://github.com/nusrathumaira12)     | Frontend Developer (UI/UX, State Management)  |
-| [Aanan Munna](https://github.com/AananMunna)        | DevOps Engineer (Deployment, CI/CD, Environment Setup) |
-| [Mehedi Hasan](https://github.com/mehedidevx)       | QA Engineer (Testing, Debugging, Performance) |
+| [Md. Yeasin Islam](https://github.com/yeasin-islam)  | Lead Project + Manage Admin Workflow + Git&Github (MERN Developer) |
+| [Md. Al Amin](https://github.com/alamin-87)        | Layout + Manage Recruiter WorkFlow (Backend Developer) |
+| [Nusrat Humaira](https://github.com/nusrathumaira12)     | Manage Tutor Workflow (Frontend Developer) |
+| [Aanan Munna](https://github.com/AananMunna)        | Manage User Workflow + Implement Chatting (MERN Developer) |
+| [Md. Mehedi Hasan](https://github.com/mehedidevx)       | Auth + Landing Page + Feed (Frontend Developer) |
 
 ---
 
 ## 14. Team Member Roles (Optional)
-- **Project Manager:** Yeasin
-- **Tech Lead:** Al Amin
-- **UI/UX Lead:** Humaira
-- **DevOps Lead:** Munna
-- **QA Lead:** Mehedi
+- **Project Manager:** *Md. Yeasin Islam*
+- **Tech Lead:** *Md. Al-Amin*
+- **UI/UX Lead:** *Nusrat Humaira*
+- **DevOps Lead:** *Aanan Munna*
+- **QA Lead:** *Md. Mehedi Hasan*
 
 ---
 
