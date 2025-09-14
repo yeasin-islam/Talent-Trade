@@ -16,7 +16,6 @@ import UseUserRole from "../hooks/UseUserRole";
 
 const DashboardLayout = () => {
   const { role, isRoleLoading } = UseUserRole();
-  console.log(role);
 
   if (isRoleLoading) {
     return (
@@ -110,9 +109,12 @@ const DashboardLayout = () => {
 
   return (
     <div className="drawer lg:drawer-open">
+      {/* Drawer toggle (for mobile & tablet) */}
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+
+      {/* Page content */}
       <div className="drawer-content flex flex-col">
-        {/* Navbar for smaller screens */}
+        {/* Mobile Navbar */}
         <div className="navbar bg-base-300 w-full lg:hidden">
           <div className="flex-none">
             <label
@@ -140,14 +142,16 @@ const DashboardLayout = () => {
           </div>
         </div>
 
-        {/* Main Content */}
-        <Outlet />
+        {/* Main content area */}
+        <div className="p-4 md:p-6 lg:p-8">
+          <Outlet />
+        </div>
       </div>
 
       {/* Sidebar */}
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content space-y-2">
+        <ul className="menu p-4 w-72 sm:w-80 min-h-full bg-base-200 text-base-content space-y-2">
           <DomexiosLogo />
 
           {panelsToShow.map((panelKey) => {
@@ -163,12 +167,12 @@ const DashboardLayout = () => {
                       to={to}
                       className={({ isActive }) =>
                         isActive
-                          ? "text-white bg-blue-600 px-4 py-2 rounded-md font-medium"
-                          : "text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md font-medium"
+                          ? "flex items-center gap-2 text-white bg-blue-600 px-4 py-2 rounded-md font-medium"
+                          : "flex items-center gap-2 text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md font-medium"
                       }
                     >
                       {icon}
-                      {text}
+                      <span>{text}</span>
                     </NavLink>
                   </li>
                 ))}
