@@ -13,6 +13,9 @@ const ComingSoon = ({
         <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
           🚧 {title}
         </h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          🚧 {title}
+        </h1>
         <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl max-w-xl mx-auto">
           {message}
         </p>
