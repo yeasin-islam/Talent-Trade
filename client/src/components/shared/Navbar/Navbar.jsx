@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
-// import FixMateLogo from "../Logo/FixMateLogo";
 import UseAuth from "../../../hooks/UseAuth";
 import ThemeToggle from "../../../DarkMode/ThemeToggle";
 
@@ -10,12 +9,14 @@ const Navbar = () => {
     logOut().catch((err) => console.error(err));
   };
 
+  // Main navigation links
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/services", label: "Services" },
-    { to: "/how-it-works", label: "How It Works" },
-    { to: "/pricing", label: "Pricing" },
-    { to: "/about", label: "About Us" },
+    { to: "/feed", label: "Feed" },
+    { to: "/swaps", label: "Swaps" },
+    { to: "/courses", label: "Courses" },
+    { to: "/jobs", label: "Jobs" },
+    { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
   ];
 
@@ -36,10 +37,15 @@ const Navbar = () => {
     ));
 
   return (
-    <div className="navbar bg-base-100 dark:bg-gray-900 shadow-md sticky top-0 z-9999 font-[Poppins] transition-colors duration-300">
+    <div className="navbar bg-base-100 dark:bg-gray-900 shadow-md sticky top-0 z-50 font-[Poppins] transition-colors duration-300">
       {/* Left: Logo */}
       <div className="navbar-start">
-        {/* <FixMateLogo /> */}
+        <Link
+          to="/"
+          className="text-xl font-extrabold text-primary tracking-wide"
+        >
+          TalentTrade
+        </Link>
       </div>
 
       {/* Center: Nav Links (Desktop) */}
@@ -73,7 +79,7 @@ const Navbar = () => {
             {renderLinks()}
             {!user ? (
               <li>
-                <NavLink to="/login">Login / Signup</NavLink>
+                <NavLink to="/login">Login</NavLink>
               </li>
             ) : (
               <>
@@ -102,7 +108,7 @@ const Navbar = () => {
         {/* Auth */}
         {!user ? (
           <Link to="/login" className="btn btn-ghost hidden lg:flex">
-            Login / Signup
+            Login
           </Link>
         ) : (
           <div className="dropdown dropdown-end">
@@ -129,10 +135,10 @@ const Navbar = () => {
 
         {/* Call-to-Action */}
         <Link
-          to="/book"
+          to="/swaps"
           className="btn btn-primary rounded-full px-4 font-semibold shadow-md hover:scale-105 transition-transform duration-200"
         >
-          Book a Fixer
+          Start Swapping
         </Link>
       </div>
     </div>
