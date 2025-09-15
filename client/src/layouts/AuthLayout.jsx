@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router";
+import MainLogo from "../components/shared/MainLogo";
 // import authImg from "../assets/AuthImg.jpg";
 
 const AuthLayout = () => {
@@ -7,7 +8,7 @@ const AuthLayout = () => {
     <div className="min-h-screen bg-base-200 p-6 lg:p-12">
       {/* Logo */}
       <div className="mb-6 flex items-start">
-         TalentTrade
+         <MainLogo />
       </div>
 
       {/* Main Content */}
