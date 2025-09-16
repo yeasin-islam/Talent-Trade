@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import SocialLogin from '../SocialLogin/SocialLogin';
-
+import { Eye, EyeOff } from 'lucide-react';
 const SignUp = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         password: ''
     });
-
+ const [showPassword, setShowPassword] = useState(false);
+   const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -33,7 +36,7 @@ const SignUp = () => {
                     <p className="text-gray-400 text-lg">Join our community of skilled professionals</p>
                 </div>
 
-                <div className="container mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div className="container mx-auto bg-white rounded-2xl border border-base-content/10 overflow-hidden">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                         {/* Left Side - Image */}
                         <div className="relative bg-gradient-to-br from-purple-600 to-blue-600 p-8 flex items-center justify-center">
@@ -106,15 +109,28 @@ const SignUp = () => {
                                     <div className="block text-sm font-semibold text-gray-700 mb-2">
                                         Password *
                                     </div>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        value={formData.password}
-                                        onChange={handleInputChange}
-                                        required
-                                        className="w-full text-black px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
-                                        placeholder="Create a strong password"
-                                    />
+                                      <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full text-black px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                      placeholder="Enter your password"
+                    />
+                    <button
+                      type="button"
+                      onClick={togglePasswordVisibility}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-5 w-5" />
+                      ) : (
+                        <Eye className="h-5 w-5" />
+                      )}
+                    </button>
+                  </div>
                                 </div>
 
                                 <button
