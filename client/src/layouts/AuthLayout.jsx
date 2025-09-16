@@ -1,14 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router";
 import MainLogo from "../components/shared/MainLogo";
+import AuthNav from "../pages/auth/AuthNav/AuthNav";
 // import authImg from "../assets/AuthImg.jpg";
 
 const AuthLayout = () => {
   return (
-    <div className="container mx-auto  p-6 lg:p-12">
+    <div className="container mx-auto  ">
       {/* Logo */}
-      <div className="mb-2 flex items-start">
-         <MainLogo />
+      <div>
+         <AuthNav></AuthNav>
       </div>
 
       {/* Main Content */}

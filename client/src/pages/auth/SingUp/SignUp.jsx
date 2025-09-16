@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
-const Signup = () => {
+const SignUp = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -123,12 +125,26 @@ const Signup = () => {
                                 </button>
                             </div>
 
-                            <div className="mt-6 text-center">
+                             {/* Social Login Options */}
+                            <div className="mt-8">
+                                <div className="relative">
+                                    <div className="absolute inset-0 flex items-center">
+                                        <div className="w-full border-t border-gray-300" />
+                                    </div>
+                                    <div className="relative flex justify-center text-sm">
+                                        <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                                    </div>
+                                </div>
+
+                               <SocialLogin></SocialLogin>
+                            </div>
+
+                            <div className="mt-4 text-center">
                                 <p className="text-sm text-gray-600">
-                                    Already have an account?{' '}
-                                    <a href="#" className="text-purple-600 hover:text-purple-700 font-semibold">
+                                    Don't have an account?{' '}
+                                    <Link to={'/signin'} className="text-blue-600 hover:text-blue-700 font-semibold">
                                         Sign In
-                                    </a>
+                                    </Link>
                                 </p>
                             </div>
                         </div>
@@ -139,4 +155,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignUp;

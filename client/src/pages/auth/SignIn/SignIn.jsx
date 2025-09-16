@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import { Link } from 'react-router';
 
 const Signin = () => {
     const [formData, setFormData] = useState({
@@ -134,24 +136,15 @@ const Signin = () => {
                                     </div>
                                 </div>
 
-                                <div className="mt-6 grid grid-cols-2 gap-3">
-                                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                                        <span className="text-lg mr-2">🔍</span>
-                                        Google
-                                    </button>
-                                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                                        <span className="text-lg mr-2">📘</span>
-                                        Facebook
-                                    </button>
-                                </div>
+                               <SocialLogin></SocialLogin>
                             </div>
 
-                            <div className="mt-8 text-center">
+                            <div className="mt-4 text-center">
                                 <p className="text-sm text-gray-600">
                                     Don't have an account?{' '}
-                                    <a href="#" className="text-blue-600 hover:text-blue-700 font-semibold">
+                                    <Link to={'/signup'} className="text-blue-600 hover:text-blue-700 font-semibold">
                                         Sign Up
-                                    </a>
+                                    </Link>
                                 </p>
                             </div>
                         </div>

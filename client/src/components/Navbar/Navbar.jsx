@@ -65,7 +65,7 @@ const Navbar = () => {
               {renderLinks()}
               {!user ? (
                 <li>
-                  <NavLink to="/login">Login</NavLink>
+                  <NavLink to="/signin">Login</NavLink>
                 </li>
               ) : (
                 <>
@@ -109,7 +109,7 @@ const Navbar = () => {
 
           {/* Auth */}
           {!user ? (
-            <Link to="/login" className="btn btn-ghost hidden lg:flex">
+            <Link to="/signin" className="btn btn-ghost hidden lg:flex">
               Login
             </Link>
           ) : (
