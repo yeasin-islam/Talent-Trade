@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Eye, EyeOff } from 'lucide-react';
+import UseAuth from "../../../hooks/UseAuth";
+import toast from "react-hot-toast";
 const Signin = () => {
+  const {signIn} = UseAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -21,7 +25,16 @@ const Signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Talent Trade Signin Data:", formData);
-    alert("Sign in successful! Check console for data.");
+    signIn(formData.email, formData.password)
+    .then((result)=>{
+      console.log("Signed in:", result.user);
+        toast.success("✅ Signed in successfully!");
+        navigate("/"); 
+    })
+    .catch((error)=>{
+      console.error("Error signing in:", error.message);
+        toast.error(error.message);
+    })
   };
 
   return (
@@ -147,7 +160,7 @@ const Signin = () => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition duration-300 shadow-lg"
+                  className="w-full bg-gradient-to-r from-blue-600 cursor-pointer to-purple-600 text-white font-bold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition duration-300 shadow-lg"
                 >
                   Sign In to Talent Trade
                 </button>

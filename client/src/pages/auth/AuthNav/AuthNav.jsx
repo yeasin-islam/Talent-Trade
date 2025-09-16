@@ -3,9 +3,9 @@ import logo from "/favicon.png";
 const AuthNav = () => {
   return (
     <div>
-      <div className="flex justify-between py-5">
+      <div className="flex justify-between items-center py-5 ">
         <div className="flex items-center">
-          <img src={logo} alt="Logo" className="h-10 md:h-14" />
+          <img src={logo} alt="Logo" className="h-10 md:h-12" />
           <div className="">
             <h1 className="md:text-2xl text-[19px] font-extrabold text-primary mt-1">
               Talent Trade

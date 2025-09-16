@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { Eye, EyeOff } from 'lucide-react';
+import UseAuth from '../../../hooks/UseAuth';
+import toast from 'react-hot-toast';
 const SignUp = () => {
+    const {createUser} = UseAuth();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -23,7 +27,17 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Talent Trade Signup Data:', formData);
-        alert('Form submitted successfully! Check console for data.');
+        createUser(formData.email, formData.password)
+        .then((result)=>{
+            console.log("User Created:", result.user)
+             toast.success("🎉 Account created successfully!");
+               navigate("/");
+        })
+        .catch((error)=>{
+            console.log("Error", error.message);
+            toast.error(error.message);
+        })
+       
     };
 
     return (

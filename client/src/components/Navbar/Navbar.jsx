@@ -119,7 +119,7 @@ const Navbar = () => {
                   <img src={user.photoURL || "/default-avatar.png"} alt="User" />
                 </div>
               </div>
-              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 dark:bg-gray-800 rounded-box w-52">
+              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100  rounded-box w-52">
                 <li className="pointer-events-none text-center font-semibold">
                   {user.displayName}
                 </li>
