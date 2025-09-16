@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaLinkedin, FaPhoneAlt, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import MainLogo from "../shared/MainLogo";
 // import logo from "../../../assets/fixmate1.png";
 
 const Footer = () => {
@@ -25,13 +26,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-gray-300 font-poppins mt-12">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Column 1: Logo & Social */}
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            {/* <img src={logo} alt="Logo" className="w-45 h-15" /> */}
-            {/* <span className="text-2xl font-bold text-green-500">FixMate</span> */}
+          <div className="flex items-center gap-2 mb-4 -ml-2">
+            <MainLogo />
           </div>
+          <p className="mb-4 text-gray-400">TalentTrade unifies learning, career growth, and networking into one ecosystem, solving the inefficiency of using separate platforms.</p>
           <div className="flex gap-3 text-lg mb-4">
             <a href="#" className="hover:text-blue-500"><FaFacebookF /></a>
             <a href="#" className="hover:text-blue-400"><FaTwitter /></a>

@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="client/public/WebLogo.png" alt="TalentTrade Logo" width="300" />
 </p>
@@ -11,24 +10,24 @@
 ---
 
 ## Table of Contents
-1. [Project Overview](#project-overview)
-    - [Mission Statement](#mission-statement)
-    - [Problem Statement](#problem-statement)
-    - [Target Audience](#target-audience)
-2. [Core Features](#core-features)
-3. [User Roles & Permissions](#user-roles--permissions)
-4. [Technical Specification](#technical-specification)
-5. [Pages & Routes](#pages--routes)
-6. [Database Schema Design](#database-schema-design)
-7. [Feature Implementation Roadmap](#feature-implementation-roadmap)
-8. [Development Roadmap (Phased)](#development-roadmap-phased)
-9. [Monetization Strategy](#monetization-strategy)
-10. [Future Enhancements](#future-enhancements)
-11. [Folder Structure (with responsibility)](#folder-structure-with-responsibility)
-12. [Testing & Deployment](#testing--deployment)
-13. [Team Members & Responsibilities](#team-members--responsibilities)
-14. [Team Member Roles (Optional)](#team-member-roles-optional)
-15. [Summary](#summary)
+1. [Project Overview](#1-project-overview)
+    - [Mission Statement](#11-mission-statement)
+    - [Problem Statement](#12-problem-statement)
+    - [Target Audience](#13-target-audience)
+2. [Core Features](#2-core-features)
+3. [User Roles & Permissions](#3-user-roles--permissions)
+4. [Technical Specification](#4-technical-specification)
+5. [Pages & Routes](#5-pages--routes)
+6. [Database Schema Design](#6-database-schema-design)
+7. [Feature Implementation Roadmap](#7-feature-implementation-roadmap)
+8. [Development Roadmap (Phased)](#8-development-roadmap-phased)
+9. [Monetization Strategy](#9-monetization-strategy)
+10. [Future Enhancements](#10-future-enhancements)
+11. [Folder Structure (with responsibility)](#11-folder-structure-with-responsibility)
+12. [Testing & Deployment](#12-testing--deployment)
+13. [Team Members & Responsibilities](#13-team-members--responsibilities)
+14. [Team Member Roles (Optional)](#14-team-member-roles-optional)
+15. [Summary](#15-summary)
 
 ---
 

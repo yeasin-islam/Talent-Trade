@@ -2,21 +2,21 @@ import React from "react";
 import { NavLink, Outlet } from "react-router";
 import {
   FaUser,
-  FaCreditCard,
-  FaHistory,
+  FaBook,
+  FaHandshake,
   FaBullhorn,
+  FaChalkboardTeacher,
+  FaMoneyBillWave,
+  FaBriefcase,
   FaUserShield,
   FaUsers,
-  FaNewspaper,
-  FaHandshake,
-  FaGift,
+  FaChartBar,
+  FaEnvelope,
 } from "react-icons/fa";
-import DomexiosLogo from "../pages/shared/domexisLogo/DomexiosLogo";
 import UseUserRole from "../hooks/UseUserRole";
 
 const DashboardLayout = () => {
   const { role, isRoleLoading } = UseUserRole();
-  console.log(role);
 
   if (isRoleLoading) {
     return (
@@ -30,40 +30,68 @@ const DashboardLayout = () => {
     user: {
       label: "User Panel",
       links: [
+        { to: "/dashboard/profile", icon: <FaUser />, text: "My Profile" },
+        { to: "/dashboard/swaps", icon: <FaHandshake />, text: "My Swaps" },
+        { to: "/dashboard/courses", icon: <FaBook />, text: "My Courses" },
         {
-          to: "/dashboard/profile",
-          icon: <FaUser className="inline-block mr-2" />,
-          text: "My Profile",
+          to: "/dashboard/applications",
+          icon: <FaBriefcase />,
+          text: "Job Applications",
         },
         {
           to: "/dashboard/announcements",
-          icon: <FaBullhorn className="inline-block mr-2" />,
+          icon: <FaBullhorn />,
           text: "Announcements",
         },
       ],
     },
-    member: {
-      label: "Member Panel",
+    tutor: {
+      label: "Tutor Panel",
       links: [
         {
-          to: "/dashboard/profile",
-          icon: <FaUser className="inline-block mr-2" />,
-          text: "Member Profile",
+          to: "/dashboard/tutor-profile",
+          icon: <FaChalkboardTeacher />,
+          text: "Tutor Profile",
         },
         {
-          to: "/dashboard/make-payment",
-          icon: <FaCreditCard className="inline-block mr-2" />,
-          text: "Make Payment",
+          to: "/dashboard/manage-courses",
+          icon: <FaBook />,
+          text: "Manage Courses",
         },
         {
-          to: "/dashboard/payment-history",
-          icon: <FaHistory className="inline-block mr-2" />,
-          text: "Payment History",
+          to: "/dashboard/students",
+          icon: <FaUsers />,
+          text: "Student Progress",
         },
         {
-          to: "/dashboard/announcements",
-          icon: <FaBullhorn className="inline-block mr-2" />,
-          text: "Announcements",
+          to: "/dashboard/revenue",
+          icon: <FaMoneyBillWave />,
+          text: "Revenue",
+        },
+      ],
+    },
+    recruiter: {
+      label: "Recruiter Panel",
+      links: [
+        {
+          to: "/dashboard/recruiter-profile",
+          icon: <FaUserShield />,
+          text: "Recruiter Profile",
+        },
+        {
+          to: "/dashboard/manage-jobs",
+          icon: <FaBriefcase />,
+          text: "Manage Jobs",
+        },
+        {
+          to: "/dashboard/applicants",
+          icon: <FaUsers />,
+          text: "Applicant Tracking",
+        },
+        {
+          to: "/dashboard/analytics",
+          icon: <FaChartBar />,
+          text: "Analytics",
         },
       ],
     },
@@ -72,47 +100,53 @@ const DashboardLayout = () => {
       links: [
         {
           to: "/dashboard/admin-profile",
-          icon: <FaUserShield className="inline-block mr-2" />,
+          icon: <FaUserShield />,
           text: "Admin Profile",
         },
         {
-          to: "/dashboard/manage-members",
-          icon: <FaUsers className="inline-block mr-2" />,
-          text: "Manage Members",
+          to: "/dashboard/manage-users",
+          icon: <FaUsers />,
+          text: "Manage Users",
         },
         {
-          to: "/dashboard/make-announcement",
-          icon: <FaNewspaper className="inline-block mr-2" />,
-          text: "Make Announcement",
+          to: "/dashboard/content-moderation",
+          icon: <FaEnvelope />,
+          text: "Content Moderation",
         },
         {
-          to: "/dashboard/agreement-requests",
-          icon: <FaHandshake className="inline-block mr-2" />,
-          text: "Agreement Requests",
+          to: "/dashboard/system-settings",
+          icon: <FaChartBar />,
+          text: "System Settings",
         },
-        {
-          to: "/dashboard/manage-coupons",
-          icon: <FaGift className="inline-block mr-2" />,
-          text: "Manage Coupons",
+          {
+          to: "/dashboard/announcements",
+          icon: <FaBullhorn />,
+          text: "Announcements",
         },
       ],
     },
   };
 
+  // Show correct panels based on role
   const panelsToShow =
     role === "admin"
-      ? ["user", "member", "admin"]
-      : role === "member"
-      ? ["member"]
+      ? ["admin"] // full power
+      : role === "tutor"
+      ? ["tutor"]
+      : role === "recruiter"
+      ? ["recruiter"]
       : role === "user"
       ? ["user"]
       : [];
 
   return (
     <div className="drawer lg:drawer-open">
+      {/* Drawer toggle (for mobile & tablet) */}
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+
+      {/* Page content */}
       <div className="drawer-content flex flex-col">
-        {/* Navbar for smaller screens */}
+        {/* Mobile Navbar */}
         <div className="navbar bg-base-300 w-full lg:hidden">
           <div className="flex-none">
             <label
@@ -136,19 +170,23 @@ const DashboardLayout = () => {
             </label>
           </div>
           <div className="mx-2 flex-1 px-2 font-bold text-lg">
-            Domexios Dashboard
+            TalentTrade Dashboard
           </div>
         </div>
 
-        {/* Main Content */}
-        <Outlet />
+        {/* Main content area */}
+        <div className="p-4 md:p-6 lg:p-8">
+          <Outlet />
+        </div>
       </div>
 
       {/* Sidebar */}
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content space-y-2">
-          <DomexiosLogo />
+        <ul className="menu p-4 w-72 sm:w-80 min-h-full bg-base-200 text-base-content space-y-2">
+          <div className="text-2xl font-extrabold text-primary mb-4">
+            TalentTrade
+          </div>
 
           {panelsToShow.map((panelKey) => {
             const panel = panels[panelKey];
@@ -163,12 +201,12 @@ const DashboardLayout = () => {
                       to={to}
                       className={({ isActive }) =>
                         isActive
-                          ? "text-white bg-blue-600 px-4 py-2 rounded-md font-medium"
-                          : "text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md font-medium"
+                          ? "flex items-center gap-2 text-white bg-blue-600 px-4 py-2 rounded-md font-medium"
+                          : "flex items-center gap-2 text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md font-medium"
                       }
                     >
                       {icon}
-                      {text}
+                      <span>{text}</span>
                     </NavLink>
                   </li>
                 ))}
