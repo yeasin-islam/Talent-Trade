@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
-import Home from "../pages/Home/Home";
+
 import Feed from "../pages/Feed/Feed";
 import Swaps from "../pages/Swaps/Swaps";
 import Courses from "../pages/Courses/Courses";
@@ -32,6 +32,7 @@ import Students from "../pages/DashBoard/Students/Students";
 import Revenue from "../pages/DashBoard/Revenue/Revenue";
 import Signin from "../pages/auth/SignIn/SignIn";
 import SignUp from "../pages/auth/Singup/Signup";
+import Home from "../pages/Home/Home/Home";
 
 export const router = createBrowserRouter([
   {

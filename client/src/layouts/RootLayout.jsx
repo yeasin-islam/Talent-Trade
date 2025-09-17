@@ -12,8 +12,8 @@ const RootLayout = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow w-full px-3 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-4">
-        <div className="max-w-7xl mx-auto">
+      <main className="flex-grow w-full px-3   py-4">
+        <div className=" mx-auto">
           <Outlet />
         </div>
       </main>
