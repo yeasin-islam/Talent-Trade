@@ -7,7 +7,7 @@ const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar (fixed on top for larger screens if needed) */}
-      <header className="w-full">
+      <header className="sticky top-0 z-999">
         <Navbar />
       </header>
 

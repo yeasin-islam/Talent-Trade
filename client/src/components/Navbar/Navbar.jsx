@@ -103,7 +103,7 @@ const Navbar = () => {
         </div>
 
         {/* Right: Actions */}
-        <div className="navbar-end flex items-center gap-1">
+        <div className="navbar-end flex items-center gap-3">
           {/* Dark/Light Mode Toggle */}
           <ThemeToggle />
 
