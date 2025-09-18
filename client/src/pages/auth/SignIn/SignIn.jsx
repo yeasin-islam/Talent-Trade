@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { Link, useNavigate } from "react-router";
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from "lucide-react";
 import UseAuth from "../../../hooks/UseAuth";
 import toast from "react-hot-toast";
 const Signin = () => {
-  const {signIn} = UseAuth();
+  const { signIn } = UseAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
- const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,15 +26,24 @@ const Signin = () => {
     e.preventDefault();
     console.log("Talent Trade Signin Data:", formData);
     signIn(formData.email, formData.password)
-    .then((result)=>{
-      console.log("Signed in:", result.user);
+      .then((result) => {
+        const user = result.user;
+        const userData = {
+          email: formData.email,
+          name: formData.fullName,
+          role: "user",
+          lastLogin: user.metadata.lastSignInTime,
+          creationTime: user.metadata.creationTime,
+        };
+        console.log(userData)
+        console.log("Signed in:", result.user);
         toast.success("✅ Signed in successfully!");
-        navigate("/"); 
-    })
-    .catch((error)=>{
-      console.error("Error signing in:", error.message);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error signing in:", error.message);
         toast.error(error.message);
-    })
+      });
   };
 
   return (
