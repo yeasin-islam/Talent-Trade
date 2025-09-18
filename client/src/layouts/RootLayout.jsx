@@ -7,13 +7,13 @@ const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar (fixed on top for larger screens if needed) */}
-      <header className="w-full">
+      <header className="sticky top-0 z-999">
         <Navbar />
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow w-full px-3 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-4">
-        <div className="max-w-7xl mx-auto">
+      <main className="flex-grow w-full px-3   py-4">
+        <div className=" mx-auto">
           <Outlet />
         </div>
       </main>

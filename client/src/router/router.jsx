@@ -1,14 +1,13 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
-import Home from "../pages/Home/Home";
+
 import Feed from "../pages/Feed/Feed";
 import Swaps from "../pages/Swaps/Swaps";
 import Courses from "../pages/Courses/Courses";
 import Jobs from "../pages/Jobs/Jobs";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
-import Login from "../pages/Login/Login";
-import Signup from "../pages/Singup/Signup";
+
 import AuthLayout from "../layouts/AuthLayout";
 import Forbidden from "../pages/Forbidden/Forbidden";
 import PrivateRoute from "../routes/PrivateRoute";
@@ -31,6 +30,9 @@ import TutorProfile from "../pages/DashBoard/TutorProfile/TutorProfile";
 import ManageCourses from "../pages/DashBoard/ManageCourses/ManageCourses";
 import Students from "../pages/DashBoard/Students/Students";
 import Revenue from "../pages/DashBoard/Revenue/Revenue";
+import Signin from "../pages/auth/SignIn/SignIn";
+import SignUp from "../pages/auth/Singup/Signup";
+import Home from "../pages/Home/Home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -73,12 +75,12 @@ export const router = createBrowserRouter([
     Component: AuthLayout,
     children: [
       {
-        path: "login",
-        Component: Login,
+        path: "signin",
+        Component: Signin,
       },
       {
         path: "signup",
-        Component: Signup,
+        Component: SignUp,
       },
     ],
     errorElement: Forbidden,

@@ -1,20 +1,21 @@
 import React from "react";
 import { Outlet } from "react-router";
 import MainLogo from "../components/shared/MainLogo";
+import AuthNav from "../pages/auth/AuthNav/AuthNav";
 // import authImg from "../assets/AuthImg.jpg";
 
 const AuthLayout = () => {
   return (
-    <div className="min-h-screen bg-base-200 p-6 lg:p-12">
+    <div className="container mx-auto  ">
       {/* Logo */}
-      <div className="mb-6 flex items-start">
-         <MainLogo />
+      <div>
+         <AuthNav></AuthNav>
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8">
+      <div className="">
         {/* Outlet (form side) */}
-        <div className="w-full lg:w-1/2">
+        <div className=" ">
           <Outlet />
         </div>
 

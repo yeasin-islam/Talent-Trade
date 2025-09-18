@@ -37,7 +37,7 @@ const Navbar = () => {
     ));
 
   return (
-    <div className="bg-base-100 dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors font-semibold duration-300">
+    <div className="bg-base-100  shadow-md sticky top-0 z-50 transition-colors font-semibold duration-300">
       <div className="navbar container mx-auto px-4">
         {/* Mobile Menu */}
         <div className="navbar-center lg:hidden">
@@ -65,7 +65,7 @@ const Navbar = () => {
               {renderLinks()}
               {!user ? (
                 <li>
-                  <NavLink to="/login">Login</NavLink>
+                  <NavLink to="/signin">Login</NavLink>
                 </li>
               ) : (
                 <>
@@ -103,13 +103,13 @@ const Navbar = () => {
         </div>
 
         {/* Right: Actions */}
-        <div className="navbar-end flex items-center gap-1">
+        <div className="navbar-end flex items-center gap-3">
           {/* Dark/Light Mode Toggle */}
           <ThemeToggle />
 
           {/* Auth */}
           {!user ? (
-            <Link to="/login" className="btn btn-ghost hidden lg:flex">
+            <Link to="/signin" className="btn btn-ghost hidden lg:flex">
               Login
             </Link>
           ) : (
@@ -119,7 +119,7 @@ const Navbar = () => {
                   <img src={user.photoURL || "/default-avatar.png"} alt="User" />
                 </div>
               </div>
-              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 dark:bg-gray-800 rounded-box w-52">
+              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100  rounded-box w-52">
                 <li className="pointer-events-none text-center font-semibold">
                   {user.displayName}
                 </li>
