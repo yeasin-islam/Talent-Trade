@@ -12,20 +12,10 @@ import {
   FaUsers,
   FaChartBar,
   FaEnvelope,
+  FaPlusCircle,
 } from "react-icons/fa";
-import UseUserRole from "../hooks/UseUserRole";
 
 const DashboardLayout = () => {
-  const { role, isRoleLoading } = UseUserRole();
-
-  if (isRoleLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
-  }
-
   const panels = {
     user: {
       label: "User Panel",
@@ -74,6 +64,11 @@ const DashboardLayout = () => {
       label: "Recruiter Panel",
       links: [
         {
+          to: "/dashboard/recruiter-dashboard",
+          icon: <FaChartBar />,
+          text: "Recruiter Dashboard",
+        },
+        {
           to: "/dashboard/recruiter-profile",
           icon: <FaUserShield />,
           text: "Recruiter Profile",
@@ -84,6 +79,11 @@ const DashboardLayout = () => {
           text: "Manage Jobs",
         },
         {
+          to: "/dashboard/post-job",
+          icon: <FaPlusCircle />, 
+          text: "Job Post",
+        },
+        {
           to: "/dashboard/applicants",
           icon: <FaUsers />,
           text: "Applicant Tracking",
@@ -92,6 +92,11 @@ const DashboardLayout = () => {
           to: "/dashboard/analytics",
           icon: <FaChartBar />,
           text: "Analytics",
+        },
+        {
+          to: "/dashboard/recruiter-messages",
+          icon: <FaEnvelope />,
+          text: "Messages",
         },
       ],
     },
@@ -118,7 +123,7 @@ const DashboardLayout = () => {
           icon: <FaChartBar />,
           text: "System Settings",
         },
-          {
+        {
           to: "/dashboard/announcements",
           icon: <FaBullhorn />,
           text: "Announcements",
@@ -127,17 +132,8 @@ const DashboardLayout = () => {
     },
   };
 
-  // Show correct panels based on role
-  const panelsToShow =
-    role === "admin"
-      ? ["admin"] // full power
-      : role === "tutor"
-      ? ["tutor"]
-      : role === "recruiter"
-      ? ["recruiter"]
-      : role === "user"
-      ? ["user"]
-      : [];
+  // Show all panels at once
+  const panelsToShow = Object.keys(panels);
 
   return (
     <div className="drawer lg:drawer-open">
