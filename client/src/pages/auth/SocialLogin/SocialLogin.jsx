@@ -1,20 +1,38 @@
-import React from 'react'
+import React from "react";
+import UseAuth from "../../../hooks/UseAuth";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 export default function SocialLogin() {
-  const handleGoogleLogin = () => {
-    // Google login logic here
-    console.log('Google login clicked')
-  }
+  const { signInWithGoogle, signInWithGithub } = UseAuth();
+  const navigate = useNavigate();
 
-  const handleFacebookLogin = () => {
-    // Facebook login logic here
-    console.log('Facebook login clicked')
-  }
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithGoogle();
+      toast.success("Successfully signed in with Google!");
+      navigate("/", { replace: true });
+      console.log("Google login successful:", result.user);
+    } catch (error) {
+      console.error("Google login failed:", error);
+      toast.error("Google sign-in failed: " + (error?.message || "Try again"));
+    }
+  };
+
+  const handleGithubLogin = async () => {
+    try {
+      const result = await signInWithGithub();
+      toast.success("GitHub Sign-in successful!");
+      navigate("/", { replace: true });
+      console.log("GitHub user:", result.user);
+    } catch (error) {
+      console.error("GitHub sign-in failed:", error);
+      toast.error("GitHub sign-in failed: " + (error?.message || ""));
+    }
+  };
 
   return (
     <div className="  grid grid-cols-2 mx-auto p-3 gap-4 ">
-     
-
       {/* Google Login Button */}
       <button
         onClick={handleGoogleLogin}
@@ -41,20 +59,35 @@ export default function SocialLogin() {
         <span className="text-gray-700 font-medium">Google</span>
       </button>
 
-      {/* Facebook Login Button */}
+      {/* GitHub Login Button */}
       <button
-        onClick={handleFacebookLogin}
-        className="w-full cursor-pointer flex items-center justify-center px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm transition-colors duration-200 group"
+        onClick={handleGithubLogin}
+        className="w-full cursor-pointer flex items-center justify-center px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white rounded-lg shadow-sm transition-colors duration-200 group"
       >
+        {/* GitHub Icon */}
         <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12 .297c-6.63 0-12 5.373-12 
+      12 0 5.303 3.438 9.8 8.205 
+      11.387.6.113.82-.258.82-.577 
+      0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 
+      1.205.084 1.84 1.236 1.84 1.236 
+      1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.332-5.466-5.93 
+      0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
+      0 0 1.005-.322 3.3 1.23a11.5 
+      11.5 0 013.003-.404c1.02.005 2.045.138 3.003.404 
+      2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 
+      3.176.765.84 1.23 1.91 1.23 3.22 
+      0 4.61-2.805 5.625-5.475 5.92.435.372.825 1.102.825 
+      2.222 0 1.606-.015 2.896-.015 3.286 
+      0 .315.21.69.825.57C20.565 22.092 24 
+      17.592 24 12.297c0-6.627-5.373-12-12-12"
+          />
         </svg>
-        <span className="font-medium">Facebook</span>
+        <span className="font-medium">GitHub</span>
       </button>
-
-     
-
-    
     </div>
-  )
+  );
 }

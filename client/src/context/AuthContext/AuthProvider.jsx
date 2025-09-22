@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
+  FacebookAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -27,6 +29,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+  const signInWithGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, GithubAuthProvider);
+  };
   const updateUserProfile = (profileInfo) => {
     return updateProfile(auth.currentUser, profileInfo);
   };
@@ -51,6 +57,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     signInWithGoogle,
     updateUserProfile,
+    signInWithGithub,
   };
   return <AuthContext value={AuthInfo}>{children}</AuthContext>;
 };

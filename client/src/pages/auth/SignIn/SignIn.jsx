@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
 import UseAuth from "../../../hooks/UseAuth";
 import toast from "react-hot-toast";
+
 const Signin = () => {
   const { signIn } = UseAuth();
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Signin = () => {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -19,9 +21,11 @@ const Signin = () => {
       [name]: value,
     }));
   };
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Talent Trade Signin Data:", formData);
@@ -47,16 +51,16 @@ const Signin = () => {
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold  mb-2">
+          <h1 className="text-4xl font-bold mb-2">
             Talent <span className="text-purple-600">Trade</span>
           </h1>
-          <p className="text-gray-600 text-lg">Welcome back to our community</p>
+          <p className="text-base-content/70 text-lg">Welcome back to our community</p>
         </div>
 
-        <div className="container mx-auto bg-white rounded-2xl border border-base-content/10 overflow-hidden">
+        <div className="container mx-auto bg-base-100 rounded-2xl border border-base-content/10 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             {/* Left Side - Image */}
             <div className="relative bg-gradient-to-br from-blue-600 to-purple-600 p-8 flex items-center justify-center">
@@ -97,13 +101,13 @@ const Signin = () => {
 
             {/* Right Side - Form */}
             <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-8">
+              <h3 className="text-2xl font-bold text-base-content mb-8">
                 Sign In to Your Account
               </h3>
 
               <div className="space-y-6">
                 <div>
-                  <div className="block text-sm font-semibold text-gray-700 mb-2">
+                  <div className="block text-sm font-semibold text-base-content mb-2">
                     Email *
                   </div>
                   <input
@@ -112,14 +116,14 @@ const Signin = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full text-black px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                    className="input input-bordered w-full px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                     placeholder="Enter your email"
                   />
                 </div>
 
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <div className="text-sm font-semibold text-gray-700">
+                    <div className="text-sm font-semibold text-base-content">
                       Password *
                     </div>
                     <a
@@ -136,13 +140,13 @@ const Signin = () => {
                       value={formData.password}
                       onChange={handleInputChange}
                       required
-                      className="w-full text-black px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                      className="input input-bordered w-full px-4 py-3 pr-12 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                       placeholder="Enter your password"
                     />
                     <button
                       type="button"
                       onClick={togglePasswordVisibility}
-                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-base-content/60 hover:text-base-content transition-colors duration-200"
                     >
                       {showPassword ? (
                         <EyeOff className="h-5 w-5" />
@@ -157,11 +161,11 @@ const Signin = () => {
                   <input
                     type="checkbox"
                     id="remember"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className="checkbox checkbox-primary"
                   />
                   <label
                     htmlFor="remember"
-                    className="ml-2 block text-sm text-gray-700"
+                    className="ml-2 block text-sm text-base-content"
                   >
                     Remember me
                   </label>
@@ -179,10 +183,10 @@ const Signin = () => {
               <div className="mt-8">
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-gray-300" />
+                    <div className="w-full border-t border-base-content/20" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">
+                    <span className="px-2 bg-base-100 text-base-content/70">
                       Or continue with
                     </span>
                   </div>
@@ -192,7 +196,7 @@ const Signin = () => {
               </div>
 
               <div className="mt-4 text-center">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-base-content/70">
                   Don't have an account?{" "}
                   <Link
                     to={"/signup"}
