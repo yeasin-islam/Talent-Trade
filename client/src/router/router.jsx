@@ -33,6 +33,9 @@ import Revenue from "../pages/DashBoard/Revenue/Revenue";
 import Signin from "../pages/auth/SignIn/SignIn";
 import SignUp from "../pages/auth/Singup/Signup";
 import Home from "../pages/Home/Home/Home";
+import RecruiterDashBoard from "../pages/DashBoard/RecruiterDashBoard/RecruiterDashBoard";
+import RecruiterMessages from "../pages/DashBoard/RecruiterMessages/RecruiterMessages";
+import PostJob from "../pages/DashBoard/PostJobs/PostJob";
 
 export const router = createBrowserRouter([
   {
@@ -115,7 +118,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "admin-profile",
-        // Component: AdminProfile,
         element: (
           <AdminRoute>
             <AdminProfile />
@@ -124,29 +126,26 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-users",
-        // Component: ManageMembers,
         element: (
-          <AdminRoute>
-            <ManageUsers />
-          </AdminRoute>
+          // <AdminRoute>
+          // </AdminRoute>
+          <ManageUsers />
         ),
       },
       {
         path: "content-moderation",
-        // Component: MakeAnnouncement,
         element: (
-          <AdminRoute>
-            <ContentModeration />
-          </AdminRoute>
+          // <AdminRoute>
+          // </AdminRoute>
+          <ContentModeration />
         ),
       },
       {
         path: "system-settings",
-        // Component: AgreementRequests,
         element: (
-          <AdminRoute>
-            <SystemSettings />
-          </AdminRoute>
+          // <AdminRoute>
+          // </AdminRoute>
+          <SystemSettings />
         ),
       },
       // {
@@ -155,67 +154,91 @@ export const router = createBrowserRouter([
       //   element:<AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
       // },
       {
+        path: "recruiter-dashboard",
+        element: (
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <RecruiterDashBoard />
+        ),
+      },
+      {
         path: "recruiter-profile",
         element: (
-          <RecruiterRoute>
-            <RecruiterProfile />
-          </RecruiterRoute>
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <RecruiterProfile />
         ),
       },
       {
         path: "manage-jobs",
         element: (
-          <RecruiterRoute>
-            <ManageJobs />
-          </RecruiterRoute>
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <ManageJobs />
         ),
       },
       {
         path: "applicants",
         element: (
-          <RecruiterRoute>
-            <Applications />
-          </RecruiterRoute>
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <Applications />
         ),
       },
       {
         path: "analytics",
         element: (
-          <RecruiterRoute>
-            <Analytics />
-          </RecruiterRoute>
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <Analytics />
+        ),
+      },
+      {
+        path: "recruiter-messages",
+        element: (
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <RecruiterMessages />
+        ),
+      },
+      {
+        path: "post-job",
+        element: (
+          // <RecruiterRoute>
+          // </RecruiterRoute>
+          <PostJob />
         ),
       },
       {
         path: "tutor-profile",
         element: (
-          <TutorRoute>
-            <TutorProfile />
-          </TutorRoute>
+          // <TutorRoute>
+          // </TutorRoute>
+          <TutorProfile />
         ),
       },
       {
         path: "manage-courses",
         element: (
-          <TutorRoute>
-            <ManageCourses />
-          </TutorRoute>
+          // <TutorRoute>
+          // </TutorRoute>
+          <ManageCourses />
         ),
       },
       {
         path: "students",
         element: (
-          <TutorRoute>
-            <Students />
-          </TutorRoute>
+          // <TutorRoute>
+          // </TutorRoute>
+          <Students />
         ),
       },
       {
         path: "revenue",
         element: (
-          <TutorRoute>
-            <Revenue />
-          </TutorRoute>
+          // <TutorRoute>
+          // </TutorRoute>
+          <Revenue />
         ),
       },
       {
