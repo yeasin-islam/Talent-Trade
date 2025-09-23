@@ -36,6 +36,7 @@ import Home from "../pages/Home/Home/Home";
 import RecruiterDashBoard from "../pages/DashBoard/RecruiterDashBoard/RecruiterDashBoard";
 import RecruiterMessages from "../pages/DashBoard/RecruiterMessages/RecruiterMessages";
 import PostJob from "../pages/DashBoard/PostJobs/PostJob";
+import TutorDashboard from "../pages/DashBoard/TutorDashBoard/TutorDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -207,6 +208,14 @@ export const router = createBrowserRouter([
           // <RecruiterRoute>
           // </RecruiterRoute>
           <PostJob />
+        ),
+      },
+        {
+        path: "tutor-dashboard",
+        element: (
+          // <TutorRoute>
+          // </TutorRoute>
+          <TutorDashboard />
         ),
       },
       {
