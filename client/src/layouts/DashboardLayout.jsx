@@ -38,6 +38,11 @@ const DashboardLayout = () => {
     tutor: {
       label: "Tutor Panel",
       links: [
+           {
+          to: "/dashboard/tutor-dashboard",
+          icon: <FaChartBar />,
+          text: "Tutor Dashboard",
+        },
         {
           to: "/dashboard/tutor-profile",
           icon: <FaChalkboardTeacher />,
