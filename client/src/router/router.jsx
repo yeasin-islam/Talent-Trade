@@ -24,7 +24,7 @@ import RecruiterRoute from "../routes/RecruiterRoute";
 import RecruiterProfile from "../pages/DashBoard/RecruiterProfile/RecruiterProfile";
 import ManageJobs from "../pages/DashBoard/ManageJobs/ManageJobs";
 import Applications from "../pages/DashBoard/Applicants/Applications";
-import Analytics from "../pages/DashBoard/Analytics/Analytics";
+import Analytic from "../pages/DashBoard/Analytics/Analytic";
 import TutorRoute from "../routes/TutorRoute";
 import TutorProfile from "../pages/DashBoard/TutorProfile/TutorProfile";
 import ManageCourses from "../pages/DashBoard/ManageCourses/ManageCourses";
@@ -191,7 +191,7 @@ export const router = createBrowserRouter([
         element: (
           // <RecruiterRoute>
           // </RecruiterRoute>
-          <Analytics />
+          <Analytic />
         ),
       },
       {
