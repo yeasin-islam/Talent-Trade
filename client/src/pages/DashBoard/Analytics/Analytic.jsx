@@ -1,7 +1,6 @@
-import React from 'react';
 import ComingSoon from '../../../components/shared/ComingSoon';
 
-const Analytics = () => {
+const Analytic = () => {
     return (
         <>
             <ComingSoon></ComingSoon>
@@ -9,4 +8,4 @@ const Analytics = () => {
     );
 };
 
-export default Analytics;
+export default Analytic;
